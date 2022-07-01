@@ -21,19 +21,17 @@ html {
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
   --box-shadow-lg: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  --fonts-head: 2rem;
+  /* --fonts-head: 2rem;
   --fonts-body: 1.3rem;
   --fonts-header: 3rem;
-  --fonts-header-text: 1.5rem;
+  --fonts-header-text: 1.5rem; */
   --font-cursive: "Kaushan Script", cursive;
   --font-header: "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;
   --font-logo: "Rock Salt", cursive;
   --font-head: "Sora", sans-serif;
 }
-body {
-  background-color: var(--white);
-}
+
 .btn {
   padding: 14px 32px;
   border: none;
@@ -44,6 +42,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--white);
 }
+
 hr {
   border: none;
   border-top: solid var(--blue);
@@ -51,52 +50,51 @@ hr {
   height: 2px;
 }
 
-header {
-  background-image: url("./assets/landing_bg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-object-fit:cover;
+.landing_img {
   width: 100%;
-  min-height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+header {
+  margin-bottom: 2rem;
 }
 header .circle {
   width: 100%;
   height: 200px;
+  position: absolute;
+  top: 0;
   border-radius: 0 0 70% 40%;
   display: none;
   background-color: var(--blue);
   box-shadow: var(--box-shadow-lg);
 }
 .hero {
-  position: absolute;
-  top: 0;
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-auto-rows: minmax(300px, auto);
-  gap: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  height: 100vh;
-  width: 100%;
+
+  min-height: 80vh;
+  width: 50%;
   margin: 2rem 0;
+  margin-bottom: 6rem;
 }
 .heading {
-  align-self: center;
-  padding-left: 1.5rem;
   color: var(--white);
   font-family: var(--fonts-header-text);
-  font-size: var(--fonts-header-text);
-  width: 100%;
+  font-size: 1.5rem;
+  flex-basis: 100%;
 }
 .heading h1 {
   font-family: var(--font-header);
-  font-size: var(--fonts-header);
+  font-size: 3rem;
 }
 .heading button {
   margin-top: 20px;
   box-shadow: var(--box-shadow);
-  transition: 0.4s ease-out;
+  transition: 0.3s ease-out;
 }
 .heading button:hover {
   background-color: var(--blue);
@@ -112,11 +110,12 @@ nav {
   align-items: center;
   flex-wrap: nowrap;
   padding: 0.3rem;
+  margin-bottom: 5rem;
   z-index: 999;
 }
 nav .logo a {
   text-decoration: none;
-  font-size: var(--fonts-head);
+  font-size: 2rem;
   color: var(--white);
   font-family: var(--font-logo);
 }
@@ -159,19 +158,54 @@ nav .nav-links ul li a:focus {
   border-radius: 15px;
   transition: 0.4s ease-in;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#services p {
+  font-size: 1.2rem;
+  font-family: var(--font-body);
+  width: 80%;
+}
 
-@media only screen and (max-width: 900px) {
+#services div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#services div:nth-child(even) {
+  flex-direction: row-reverse;
+}
+#services div div {
+  flex-basis: 50%;
+}
+#services div div img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 984px) {
   .heading {
     color: var(--black);
     text-align: center;
-    grid-column: 1/-1;
+
+    padding: 0.1rem;
   }
   .hero {
-    margin: 0.5rem 0;
+    margin: 0.5rem auto;
+    width: 100%;
   }
-  header {
-    background-image: none;
-    background-color: var(--white);
+  .landing_img {
+    display: none;
   }
   header .circle {
     display: block;
@@ -206,3 +240,31 @@ nav .nav-links ul li a:focus {
     display: flex;
   }
 }
+@media only screen and (max-width: 770px) {
+  #services div {
+    flex-direction: column;
+  }
+  #services div:nth-child(even) {
+    flex-direction: column;
+  }
+  #services div div {
+    flex-basis: 100%;
+    padding: 1rem;
+  }
+  #services div div img {
+    width: 60%;
+  }
+  #services p {
+    font-size: 1rem;
+
+    width: 90%;
+  }
+}
+/* @media only screen and (max-width: 427) {
+  .hero .heading {
+    font-size: 1.2rem;
+  }
+  .hero .heading h1 {
+    font-size: 1.5rem;
+  }
+} */
