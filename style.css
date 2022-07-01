@@ -57,6 +57,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
+object-fit:cover;
   width: 100%;
   min-height: 100vh;
 }
