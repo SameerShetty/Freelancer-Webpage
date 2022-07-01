@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pathway+Gothic+One&family=Poppins:wght@200;400&family=Righteous&family=Roboto:wght@700&family=Rock+Salt&family=Sacramento&family=Sora:wght@100;300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --blue: #4b53e4;
+  --darkblue: #221660;
+  --orange: #f7a915;
+  --green: #30b47a;
+  --red: #ff5841;
+  --white: #f6f6f6;
+  --lblack: #34374c;
+  --black: #2c2e3e;
+  --box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  --box-shadow-lg: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --fonts-head: 2rem;
+  --fonts-body: 1.3rem;
+  --fonts-header: 3rem;
+  --fonts-header-text: 1.5rem;
+  --font-cursive: "Kaushan Script", cursive;
+  --font-header: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-logo: "Rock Salt", cursive;
+  --font-head: "Sora", sans-serif;
+}
+body {
+  background-color: var(--white);
+}
+.btn {
+  padding: 14px 32px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: var(--black);
+  font-family: var(--font-body);
+  background-color: var(--white);
+}
+hr {
+  border: none;
+  border-top: solid var(--blue);
+  width: 100%;
+  height: 2px;
+}
+
+header {
+  background-image: url("./assets/landing_bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  width: 100%;
+  min-height: 100vh;
+}
+header .circle {
+  width: 100%;
+  height: 200px;
+  border-radius: 0 0 70% 40%;
+  display: none;
+  background-color: var(--blue);
+  box-shadow: var(--box-shadow-lg);
+}
+.hero {
+  position: absolute;
+  top: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-auto-rows: minmax(300px, auto);
+  gap: 1em;
+  padding: 1rem;
+  height: 100vh;
+  width: 100%;
+  margin: 2rem 0;
+}
+.heading {
+  align-self: center;
+  padding-left: 1.5rem;
+  color: var(--white);
+  font-family: var(--fonts-header-text);
+  font-size: var(--fonts-header-text);
+  width: 100%;
+}
+.heading h1 {
+  font-family: var(--font-header);
+  font-size: var(--fonts-header);
+}
+.heading button {
+  margin-top: 20px;
+  box-shadow: var(--box-shadow);
+  transition: 0.4s ease-out;
+}
+.heading button:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+nav {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.3rem;
+  z-index: 999;
+}
+nav .logo a {
+  text-decoration: none;
+  font-size: var(--fonts-head);
+  color: var(--white);
+  font-family: var(--font-logo);
+}
+nav .nav-links ul li {
+  display: inline-block;
+  padding: 0 1rem;
+  font-size: 1.4rem;
+  font-family: var(--font-head);
+}
+nav .nav-links ul li a {
+  text-decoration: none;
+  color: var(--lblack);
+}
+nav .nav-links ul li a:hover,
+nav .nav-links ul li a:active,
+nav .nav-links ul li a:focus {
+  color: black;
+  outline: none;
+}
+.nav-toggler {
+  cursor: pointer;
+  display: none;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: var(--blue);
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  width: 28px;
+  height: 30px;
+  border-radius: 4px;
+  padding: 2px;
+  z-index: 9999;
+}
+.nav-toggler span {
+  background-color: var(--white);
+  width: 100%;
+  padding: 1.5px 1px;
+  height: 2px;
+  border-radius: 15px;
+  transition: 0.4s ease-in;
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    color: var(--black);
+    text-align: center;
+    grid-column: 1/-1;
+  }
+  .hero {
+    margin: 0.5rem 0;
+  }
+  header {
+    background-image: none;
+    background-color: var(--white);
+  }
+  header .circle {
+    display: block;
+  }
+  nav .nav-links {
+    background-color: var(--blue);
+
+    width: 45%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -50%;
+    transition: 0.5s ease-in;
+  }
+  nav .nav-links ul {
+    padding-top: 2rem;
+  }
+  nav .nav-links ul li {
+    display: block;
+    padding: 15px;
+    text-align: left;
+  }
+  nav .nav-links ul li a {
+    color: var(--white);
+  }
+  nav .nav-links ul li a:hover,
+  nav .nav-links ul li a:active,
+  nav .nav-links ul li a:focus {
+    color: var(--white);
+  }
+  .nav-toggler {
+    display: flex;
+  }
+}
